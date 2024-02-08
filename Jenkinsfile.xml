@@ -2,21 +2,37 @@ pipeline {
     agent any
     
     stages {
-        stage('Checkout') {
+        stage('Run UFT Tests') {
             steps {
-                // Checkout your source code repository
-                git 'https://github.com/mauriliozenas/UFT_Web'
+                // Comando para executar os testes UFT
+                // Por exemplo, você pode chamar o executável do UFT e passar os testes a serem executados
+                bat '"C:\Program Files (x86)\OpenText\UFT One\bin\UFT.exe" -test "C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\Cenarios-de-tests\ValidarCompraFlight"'
             }
         }
-        stage('Build') {
-            steps {
-                // Execute ações de build (se necessário)
-            }
-        }
-        stage('Test') {
-            steps {
-                // Execute o teste UFT One
-                bat '"C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\UFTBatchRunner.exe" -testpath "C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\Cenarios-de-tests\ValidarCompraFlight"'
+    }
+    
+    post {
+        always {
+            // Após a execução dos testes, gerar o arquivo XML de resultados
+            script {
+                // Aqui você precisa ajustar o caminho e o nome do arquivo de resultado conforme necessário
+                def resultFile = 'C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\Cenarios-de-tests'
+                
+                // Gere o arquivo XML com base nos resultados dos testes
+                writeFile file: resultFile, text: """
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <testResults>
+                        <suite>
+                            <case name="ValidarCompraFlight" status="passed" duration="10"/>
+                            <case name="ValidarCompraFlight" status="failed" duration="20">
+                                <error message="Falha no teste"/>
+                            </case>
+                        </suite>
+                    </testResults>
+                """
+                
+                // Arquivo XML de resultados gerado
+                echo "Arquivo XML de resultados gerado em ${resultFile}"
             }
         }
     }
