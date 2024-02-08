@@ -19,18 +19,7 @@ pipeline {
                 def resultFile = 'C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\Cenarios-de-tests'
                 
                 // Gere o arquivo XML com base nos resultados dos testes
-                writeFile file: resultFile, text: """
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <testResults>
-                        <suite>
-                            <case name="ValidarCompraFlight" status="passed" duration="10"/>
-                            <case name="ValidarCompraFlight" status="failed" duration="20">
-                                <error message="Falha no teste"/>
-                            </case>
-                        </suite>
-                    </testResults>
-                """
-                
+                                 
                 // Arquivo XML de resultados gerado
                 echo "Arquivo XML de resultados gerado em ${resultFile}"
             }
