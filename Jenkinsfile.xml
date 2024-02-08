@@ -16,7 +16,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Execute o teste UFT One
-                bat '"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\OpenText\\OpenText UFT One\\Tools\\UFTBatchRunner.exe" -testpath "C://Users//maurilio.santos//OneDrive - NEORIS//Área de Trabalho//Cenarios-de-tests"'
+                bat '"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OpenText\OpenText UFT One\Tools\UFTBatchRunner.exe" -testpath "C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\Cenarios-de-tests"'
             }
         }
     }
