@@ -16,13 +16,12 @@ pipeline {
             // Após a execução dos testes, gerar o arquivo XML de resultados
             script {
                 // Aqui você precisa ajustar o caminho e o nome do arquivo de resultado conforme necessário
-                def resultFile = "C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\Cenarios-de-tests"
+               < def resultFile = "C:\Users\maurilio.santos\OneDrive - NEORIS\Área de Trabalho\Cenarios-de-tests"/>
                 
                 // Gere o arquivo XML com base nos resultados dos testes
                                  
                 // Arquivo XML de resultados gerado
-                echo "Arquivo XML de resultados gerado em ${testsToRunConverted}"
+               // <echo "Arquivo XML de resultados gerado em ${resultFile}"/>
             }
         }
     }
-}
