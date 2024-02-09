@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Preparar Ambiente') {
             steps {
-                bat "C:\\Program Files (x86)\\OpenText\\UFT One\\bin\\" -run "C:\\Users\\maurilio.santos\\OneDrive - NEORIS\\Área de Trabalho\\ResultadosUFT"
+                bat 'C:\\Program Files (x86)\\OpenText\\UFT One\\bin\\' -run 'C:\\Users\\maurilio.santos\\OneDrive - NEORIS\\Área de Trabalho\\ResultadosUFT'
             }
         }
     }
